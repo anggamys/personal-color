@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color.Me - Detail Produk</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #ffeef0 0%, #f8e8ff 50%, #fff0f5 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 375px;
+        margin: 0 auto;
+        background: white;
+        min-height: 100vh;
+        position: relative;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Header */
+      .header {
+        padding: 50px 20px 25px;
+        background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .back-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 2;
+        text-decoration: none;
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+      }
+
+      .header-title {
+        font-size: 20px;
+        font-weight: 600;
+        z-index: 2;
+        color: white;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 30px 20px;
+      }
+
+      /* Product Detail */
+      .product-detail-hero {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .product-detail-image {
+        width: 180px;
+        height: 180px;
+        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        border-radius: 20px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 42px;
+        box-shadow: 0 15px 35px rgba(253, 121, 168, 0.3);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .product-detail-image:hover {
+        transform: scale(1.05);
+      }
+
+      .product-detail-image::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+
+      .product-detail-brand {
+        color: #fd79a8;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+
+      .product-detail-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .product-detail-shade {
+        font-size: 16px;
+        color: #636e72;
+        font-weight: 500;
+      }
+
+      /* Match Score */
+      .match-score-section {
+        background: linear-gradient(135deg, #ffeef0 0%, #fff0f5 100%);
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+        border: 1px solid rgba(253, 121, 168, 0.1);
+      }
+
+      .score-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      .score-circle {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: conic-gradient(#fd79a8 0% 100%, #e0e6ed 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        position: relative;
+        padding: 8px;
+        animation: rotate 3s ease-in-out infinite;
+      }
+
+      @keyframes rotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      .score-inner {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .score-percentage {
+        font-size: 32px;
+        font-weight: 800;
+        color: #fd79a8;
+        line-height: 1;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 5px rgba(253, 121, 168, 0.5);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(253, 121, 168, 0.8);
+        }
+      }
+
+      .score-label {
+        font-size: 14px;
+        color: #636e72;
+        margin-top: 4px;
+        font-weight: 500;
+      }
+
+      .score-description {
+        font-size: 13px;
+        color: #636e72;
+        line-height: 1.5;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* Analysis Sections */
+      .analysis-section {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f1f2f6;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .analysis-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(253, 121, 168, 0.1);
+      }
+
+      .analysis-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .analysis-icon {
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 10px;
+      }
+
+      /* Temperature Analysis */
+      .temperature-container {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: background 0.3s ease;
+      }
+
+      .temperature-container:hover {
+        background: #f1f3f4;
+      }
+
+      .temperature-scale {
+        margin-bottom: 15px;
+      }
+
+      .temp-colors {
+        height: 24px;
+        background: linear-gradient(to right, #ff9a56, #ff6b6b, #ff8e8e, #ffb3b3, #ffc4c4, #e8a5ff, #b19cd9);
+        border-radius: 12px;
+        position: relative;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .temp-indicator {
+        position: absolute;
+        top: -8px;
+        left: 35%;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 12px solid #2c3e50;
+        animation: bounce 1s ease-in-out infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+
+      .temp-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #636e72;
+        font-weight: 500;
+      }
+
+      .temp-result {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .temp-result-text {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fd79a8;
+      }
+
+      .temp-result-label {
+        font-size: 13px;
+        color: #636e72;
+        margin-top: 4px;
+      }
+
+      /* Texture Analysis */
+      .texture-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .texture-option {
+        padding: 15px 12px;
+        border: 2px solid #e0e6ed;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 500;
+        color: #636e72;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .texture-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(253, 121, 168, 0.1), transparent);
+        transition: left 0.5s;
+      }
+
+      .texture-option:hover::before {
+        left: 100%;
+      }
+
+      .texture-option.active {
+        border-color: #fd79a8;
+        background: linear-gradient(135deg, #ffeef0 0%, #fff0f5 100%);
+        color: #fd79a8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(253, 121, 168, 0.2);
+      }
+
+      .texture-icon {
+        font-size: 20px;
+        margin-bottom: 8px;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .texture-option:hover .texture-icon {
+        transform: scale(1.2);
+      }
+
+      /* Navigation Dots */
+      .nav-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 20px 0;
+      }
+
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-dot:hover {
+        background: #fd79a8;
+        transform: scale(1.2);
+      }
+
+      .nav-dot.active {
+        background: #fd79a8;
+        transform: scale(1.3);
+        box-shadow: 0 0 10px rgba(253, 121, 168, 0.5);
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .favorite-btn {
+        background: white;
+        border: 2px solid #fd79a8;
+        color: #fd79a8;
+        padding: 15px;
+        border-radius: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .favorite-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: #fd79a8;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%);
+      }
+
+      .favorite-btn:hover::before {
+        width: 100%;
+        height: 100%;
+      }
+
+      .favorite-btn:hover {
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .favorite-btn span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .buy-button {
+        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(253, 121, 168, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .buy-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.5s;
+      }
+
+      .buy-button:hover::before {
+        left: 100%;
+      }
+
+      .buy-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(253, 121, 168, 0.4);
+      }
+
+      /* Loading Animation */
+      .loading {
+        opacity: 0;
+        animation: fadeIn 0.5s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 320px) {
+        .container {
+          max-width: 100%;
+        }
+
+        .main-content {
+          padding: 20px 15px;
+        }
+
+        .product-detail-image {
+          width: 150px;
+          height: 150px;
+        }
+
+        .texture-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <a href="personal_color_app.html" class="back-btn">←</a>
+        <div class="header-title">Detail Produk</div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Product Hero -->
+        <div class="product-detail-hero loading">
+          <div class="product-detail-image" id="productImage">💄</div>
+          <div class="product-detail-brand" id="productBrand">Wardah</div>
+          <div class="product-detail-name" id="productName">Colorfit Velvet Matte Lip Mousse</div>
+          <div class="product-detail-shade" id="productShade">02 Joyful Orange</div>
+        </div>
+
+        <!-- Match Score -->
+        <div class="match-score-section loading">
+          <div class="score-title">🎯 Personal Color Matching Rate</div>
+          <div class="score-circle">
+            <div class="score-inner">
+              <div class="score-percentage" id="productScore">100%</div>
+              <div class="score-label">Perfect</div>
+            </div>
+          </div>
+          <div class="score-description">Nilai numerik yang diperoleh dengan menganalisis tingkat kesesuaian antara informasi dasar pengguna dan konten diagnostik dengan produk.</div>
+        </div>
+
+        <!-- Temperature Analysis -->
+        <div class="analysis-section loading">
+          <div class="analysis-title">
+            <div class="analysis-icon">🌡️</div>
+            Temperature Analysis
+          </div>
+          <div class="temperature-container">
+            <div class="temperature-scale">
+              <div class="temp-colors">
+                <div class="temp-indicator" id="tempIndicator"></div>
+              </div>
+              <div class="temp-labels">
+                <span>Warm3</span>
+                <span>Warm2</span>
+                <span>Warm1</span>
+                <span>Neutral</span>
+                <span>Cool1</span>
+                <span>Cool2</span>
+                <span>Cool3</span>
+              </div>
+            </div>
+            <div class="temp-result">
+              <div class="temp-result-text" id="tempResultText">Standard Warm tone (Warm2)</div>
+              <div class="temp-result-label">Suhu produk kecantikan ini</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texture Analysis -->
+        <div class="analysis-section loading">
+          <div class="analysis-title">
+            <div class="analysis-icon">✨</div>
+            Texture Analysis
+          </div>
+          <div class="texture-grid">
+            <div class="texture-option" data-texture="satin">
+              <span class="texture-icon">🌙</span>
+              Satin
+            </div>
+            <div class="texture-option active" data-texture="semi-matte">
+              <span class="texture-icon">💫</span>
+              Semi Matte
+            </div>
+            <div class="texture-option" data-texture="matte">
+              <span class="texture-icon">🖤</span>
+              Matte
+            </div>
+            <div class="texture-option" data-texture="oily">
+              <span class="texture-icon">💎</span>
+              Oily
+            </div>
+            <div class="texture-option" data-texture="glossy">
+              <span class="texture-icon">✨</span>
+              Glossy
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="nav-dots loading">
+          <div class="nav-dot active" data-section="0"></div>
+          <div class="nav-dot" data-section="1"></div>
+          <div class="nav-dot" data-section="2"></div>
+          <div class="nav-dot" data-section="3"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons loading">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+            <span>♡</span>
+          </button>
+          <button class="buy-button" onclick="buyProduct()">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Product data
+      const productsData = {
+        wardah: {
+          image: '💄',
+          brand: 'Wardah',
+          name: 'Colorfit Velvet Matte Lip Mousse',
+          shade: '02 Joyful Orange',
+          score: '100%',
+          price: '$12.00',
+          gradient: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)',
+          temperature: 'Warm2',
+          texture: 'Semi Matte',
+        },
+      };
+
+      // Initialize product data
+      function initializeProduct() {
+        const product = productsData.wardah;
+        document.getElementById('productImage').textContent = product.image;
+        document.getElementById('productBrand').textContent = product.brand;
+        document.getElementById('productName').textContent = product.name;
+        document.getElementById('productShade').textContent = product.shade;
+        document.getElementById('productScore').textContent = product.score;
+        document.getElementById('tempResultText').textContent = `Standard ${product.temperature} tone (${product.temperature})`;
+
+        // Set temperature indicator position
+        const tempPositions = {
+          Warm3: '10%',
+          Warm2: '25%',
+          Warm1: '40%',
+          Neutral: '50%',
+          Cool1: '60%',
+          Cool2: '75%',
+          Cool3: '90%',
+        };
+        document.getElementById('tempIndicator').style.left = tempPositions[product.temperature] || '35%';
+      }
+
+      // Toggle favorite function with animation
+      function toggleFavorite(button) {
+        const span = button.querySelector('span');
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+          span.innerHTML = '❤️';
+          button.style.background = '#fd79a8';
+          button.style.color = 'white';
+          button.style.borderColor = '#fd79a8';
+
+          // Add heart animation
+          button.style.animation = 'pulse 0.3s ease-in-out';
+          setTimeout(() => {
+            button.style.animation = '';
+          }, 300);
+        } else {
+          span.innerHTML = '♡';
+          button.style.background = 'white';
+          button.style.color = '#fd79a8';
+          button.style.borderColor = '#fd79a8';
+        }
+      }
+
+      // Buy button function
+      function buyProduct() {
+        const button = event.target;
+        const originalText = button.textContent;
+
+        button.textContent = 'Menambahkan...';
+        button.disabled = true;
+        button.style.opacity = '0.7';
+
+        setTimeout(() => {
+          button.textContent = '✓ Ditambahkan ke Keranjang';
+          button.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+            button.style.opacity = '1';
+            button.style.background = 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)';
+          }, 2000);
+        }, 1000);
+      }
+
+      // Navigation dots functionality
+      document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          // Remove active class from all dots
+          document.querySelectorAll('.nav-dot').forEach((d) => d.classList.remove('active'));
+          // Add active class to clicked dot
+          dot.classList.add('active');
+
+          // Scroll to corresponding section (if needed)
+          const sections = document.querySelectorAll('.analysis-section');
+          if (sections[index]) {
+            sections[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // Texture option interactions
+      document.querySelectorAll('.texture-option').forEach((option) => {
+        option.addEventListener('click', () => {
+          // Remove active class from all options
+          document.querySelectorAll('.texture-option').forEach((opt) => opt.classList.remove('active'));
+          // Add active class to clicked option
+          option.classList.add('active');
+        });
+      });
+
+      // Initialize loading animations
+      function initializeAnimations() {
+        const loadingElements = document.querySelectorAll('.loading');
+        loadingElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.style.animationDelay = `${index * 0.1}s`;
+          }, index * 100);
+        });
+      }
+
+      // Initialize everything when page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        initializeProduct();
+        initializeAnimations();
+      });
+
+      // Add smooth scrolling for better UX
+      document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+  </body>
+</html>

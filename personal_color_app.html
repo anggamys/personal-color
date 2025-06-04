@@ -183,6 +183,8 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
+        text-decoration: none;
+        color: inherit;
       }
 
       .product-card::before {
@@ -306,399 +308,6 @@
         color: #636e72;
         line-height: 1.5;
       }
-
-      /* Modal Styles */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 1000;
-        backdrop-filter: blur(5px);
-      }
-
-      .modal.active {
-        display: block;
-      }
-
-      .modal-content {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
-      }
-
-      .modal.active .modal-content {
-        transform: translateX(0);
-      }
-
-      .modal-header {
-        padding: 50px 20px 25px;
-        background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-        color: white;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .modal-header::before {
-        content: '';
-        position: absolute;
-        top: -30px;
-        right: -30px;
-        width: 120px;
-        height: 120px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-      }
-
-      .back-btn {
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        font-size: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s ease;
-        z-index: 2;
-      }
-
-      .back-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
-
-      .modal-title {
-        font-size: 20px;
-        font-weight: 600;
-        z-index: 2;
-      }
-
-      .modal-body {
-        padding: 30px 20px;
-      }
-
-      /* Product Detail */
-      .product-detail-hero {
-        text-align: center;
-        margin-bottom: 35px;
-      }
-
-      .product-detail-image {
-        width: 180px;
-        height: 180px;
-        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
-        border-radius: 20px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 42px;
-        box-shadow: 0 15px 35px rgba(253, 121, 168, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .product-detail-image::before {
-        content: '';
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-      }
-
-      .product-detail-brand {
-        color: #fd79a8;
-        font-size: 14px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-      }
-
-      .product-detail-name {
-        font-size: 22px;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 8px;
-        line-height: 1.3;
-      }
-
-      .product-detail-shade {
-        font-size: 16px;
-        color: #636e72;
-        font-weight: 500;
-      }
-
-      /* Match Score */
-      .match-score-section {
-        background: linear-gradient(135deg, #ffeef0 0%, #fff0f5 100%);
-        padding: 25px;
-        border-radius: 20px;
-        margin-bottom: 30px;
-        text-align: center;
-      }
-
-      .score-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 20px;
-      }
-
-      .score-circle {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        background: conic-gradient(#fd79a8 0% 100%, #e0e6ed 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 15px;
-        position: relative;
-        padding: 8px;
-      }
-
-      .score-inner {
-        width: 100%;
-        height: 100%;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .score-percentage {
-        font-size: 32px;
-        font-weight: 800;
-        color: #fd79a8;
-        line-height: 1;
-      }
-
-      .score-label {
-        font-size: 14px;
-        color: #636e72;
-        margin-top: 4px;
-        font-weight: 500;
-      }
-
-      .score-description {
-        font-size: 13px;
-        color: #636e72;
-        line-height: 1.5;
-        max-width: 280px;
-        margin: 0 auto;
-      }
-
-      /* Analysis Sections */
-      .analysis-section {
-        background: white;
-        border-radius: 15px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        border: 1px solid #f1f2f6;
-      }
-
-      .analysis-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .analysis-icon {
-        width: 20px;
-        height: 20px;
-        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 10px;
-      }
-
-      /* Temperature Analysis */
-      .temperature-container {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 12px;
-        margin-bottom: 15px;
-      }
-
-      .temperature-scale {
-        margin-bottom: 15px;
-      }
-
-      .temp-colors {
-        height: 24px;
-        background: linear-gradient(to right, #ff9a56, #ff6b6b, #ff8e8e, #ffb3b3, #ffc4c4, #e8a5ff, #b19cd9);
-        border-radius: 12px;
-        position: relative;
-        margin-bottom: 10px;
-      }
-
-      .temp-indicator {
-        position: absolute;
-        top: -8px;
-        left: 35%;
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 12px solid #2c3e50;
-      }
-
-      .temp-labels {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #636e72;
-        font-weight: 500;
-      }
-
-      .temp-result {
-        text-align: center;
-        margin-top: 15px;
-      }
-
-      .temp-result-text {
-        font-size: 16px;
-        font-weight: 600;
-        color: #fd79a8;
-      }
-
-      .temp-result-label {
-        font-size: 13px;
-        color: #636e72;
-        margin-top: 4px;
-      }
-
-      /* Texture Analysis */
-      .texture-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-
-      .texture-option {
-        padding: 15px 12px;
-        border: 2px solid #e0e6ed;
-        border-radius: 12px;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 500;
-        color: #636e72;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        background: white;
-      }
-
-      .texture-option.active {
-        border-color: #fd79a8;
-        background: linear-gradient(135deg, #ffeef0 0%, #fff0f5 100%);
-        color: #fd79a8;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(253, 121, 168, 0.2);
-      }
-
-      .texture-icon {
-        font-size: 20px;
-        margin-bottom: 8px;
-        display: block;
-      }
-
-      /* Action Buttons */
-      .action-buttons {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 12px;
-        margin-top: 30px;
-      }
-
-      .favorite-btn {
-        background: white;
-        border: 2px solid #fd79a8;
-        color: #fd79a8;
-        padding: 15px;
-        border-radius: 15px;
-        font-size: 24px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .favorite-btn:hover {
-        background: #fd79a8;
-        color: white;
-      }
-
-      .buy-button {
-        background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
-        color: white;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 15px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(253, 121, 168, 0.3);
-      }
-
-      .buy-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(253, 121, 168, 0.4);
-      }
-
-      /* Navigation Dots */
-      .nav-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin: 20px 0;
-      }
-
-      .nav-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #ddd;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .nav-dot.active {
-        background: #fd79a8;
-        transform: scale(1.3);
-      }
     </style>
   </head>
   <body>
@@ -732,7 +341,7 @@
         <!-- Product Grid -->
         <div class="products-section">
           <div class="product-grid">
-            <div class="product-card" onclick="openModal('product1')">
+            <a href="product-detail.html?id=wardah" class="product-card">
               <div class="product-image">💄</div>
               <div class="product-info">
                 <div class="product-brand">Wardah</div>
@@ -742,9 +351,9 @@
                   <div class="match-badge">100%</div>
                 </div>
               </div>
-            </div>
+            </a>
 
-            <div class="product-card" onclick="openModal('product2')">
+            <a href="product-detail.html?id=hermes" class="product-card">
               <div class="product-image" style="background: linear-gradient(135deg, #ff7675 0%, #d63031 100%)">💋</div>
               <div class="product-info">
                 <div class="product-brand">Hermes</div>
@@ -754,9 +363,9 @@
                   <div class="match-badge">100%</div>
                 </div>
               </div>
-            </div>
+            </a>
 
-            <div class="product-card" onclick="openModal('product3')">
+            <a href="product-detail.html?id=romnd" class="product-card">
               <div class="product-image" style="background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)">🌟</div>
               <div class="product-info">
                 <div class="product-brand">Rom&nd</div>
@@ -766,9 +375,9 @@
                   <div class="match-badge">95%</div>
                 </div>
               </div>
-            </div>
+            </a>
 
-            <div class="product-card" onclick="openModal('product4')">
+            <a href="product-detail.html?id=3ce" class="product-card">
               <div class="product-image" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%)">✨</div>
               <div class="product-info">
                 <div class="product-brand">3CE</div>
@@ -778,7 +387,7 @@
                   <div class="match-badge">92%</div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -793,185 +402,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal" id="productModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button class="back-btn" onclick="closeModal()">←</button>
-          <div class="modal-title">Detail Produk</div>
-        </div>
-        <div class="modal-body">
-          <!-- Product Hero -->
-          <div class="product-detail-hero">
-            <div class="product-detail-image" id="modalImage">💄</div>
-            <div class="product-detail-brand" id="modalBrand">Wardah</div>
-            <div class="product-detail-name" id="modalName">Colorfit Velvet Matte Lip Mousse</div>
-            <div class="product-detail-shade" id="modalShade">02 Joyful Orange</div>
-          </div>
-
-          <!-- Match Score -->
-          <div class="match-score-section">
-            <div class="score-title">🎯 Personal Color Matching Rate</div>
-            <div class="score-circle">
-              <div class="score-inner">
-                <div class="score-percentage" id="modalScore">100%</div>
-                <div class="score-label">Perfect</div>
-              </div>
-            </div>
-            <div class="score-description">Nilai numerik yang diperoleh dengan menganalisis tingkat kesesuaian antara informasi dasar pengguna dan konten diagnostik dengan produk.</div>
-          </div>
-
-          <!-- Temperature Analysis -->
-          <div class="analysis-section">
-            <div class="analysis-title">
-              <div class="analysis-icon">🌡️</div>
-              Temperature Analysis
-            </div>
-            <div class="temperature-container">
-              <div class="temperature-scale">
-                <div class="temp-colors">
-                  <div class="temp-indicator"></div>
-                </div>
-                <div class="temp-labels">
-                  <span>Warm3</span>
-                  <span>Warm2</span>
-                  <span>Warm1</span>
-                  <span>Neutral</span>
-                  <span>Cool1</span>
-                  <span>Cool2</span>
-                  <span>Cool3</span>
-                </div>
-              </div>
-              <div class="temp-result">
-                <div class="temp-result-text">Standard Warm tone (Warm2)</div>
-                <div class="temp-result-label">Suhu produk kecantikan ini</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Texture Analysis -->
-          <div class="analysis-section">
-            <div class="analysis-title">
-              <div class="analysis-icon">✨</div>
-              Texture Analysis
-            </div>
-            <div class="texture-grid">
-              <div class="texture-option">
-                <span class="texture-icon">🌙</span>
-                Satin
-              </div>
-              <div class="texture-option active">
-                <span class="texture-icon">💫</span>
-                Semi Matte
-              </div>
-              <div class="texture-option">
-                <span class="texture-icon">🖤</span>
-                Matte
-              </div>
-              <div class="texture-option">
-                <span class="texture-icon">💎</span>
-                Oily
-              </div>
-              <div class="texture-option">
-                <span class="texture-icon">✨</span>
-                Glossy
-              </div>
-            </div>
-          </div>
-
-          <!-- Navigation Dots -->
-          <div class="nav-dots">
-            <div class="nav-dot active"></div>
-            <div class="nav-dot"></div>
-            <div class="nav-dot"></div>
-            <div class="nav-dot"></div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="action-buttons">
-            <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-            <button class="buy-button">Beli Sekarang</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      const products = {
-        product1: {
-          image: '💄',
-          brand: 'Wardah',
-          name: 'Colorfit Velvet Matte Lip Mousse',
-          shade: '02 Joyful Orange',
-          score: '100%',
-          price: '$12.00',
-          gradient: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)',
-        },
-        product2: {
-          image: '💋',
-          brand: 'Hermes',
-          name: 'Rouge Satin Lipstick',
-          shade: '36 Coral Flamingo',
-          score: '100%',
-          price: '$65.00',
-          gradient: 'linear-gradient(135deg, #ff7675 0%, #d63031 100%)',
-        },
-        product3: {
-          image: '🌟',
-          brand: 'Rom&nd',
-          name: 'Juicy Lasting Tint',
-          shade: '07 Fig Fig',
-          score: '95%',
-          price: '$8.50',
-          gradient: 'linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)',
-        },
-
-        product4: {
-          image: '✨',
-          brand: '3CE',
-          name: 'Velvet Lip Tint',
-          shade: 'Daffodil',
-          score: '92%',
-          price: '$15.20',
-          gradient: 'linear-gradient(135deg, #fab1a0 0%, #e17055 100%)',
-        },
-      };
-
-      function openModal(productId) {
-        const product = products[productId];
-        const modal = document.getElementById('productModal');
-        document.getElementById('modalImage').innerText = product.image;
-        document.getElementById('modalBrand').innerText = product.brand;
-        document.getElementById('modalName').innerText = product.name;
-        document.getElementById('modalShade').innerText = product.shade;
-        document.getElementById('modalScore').innerText = product.score;
-
-        const modalImage = document.getElementById('modalImage');
-        modalImage.style.background = product.gradient;
-
-        modal.classList.add('active');
-      }
-      function closeModal() {
-        const modal = document.getElementById('productModal');
-        modal.classList.remove('active');
-      }
-      function toggleFavorite(button) {
-        button.classList.toggle('active');
-        button.innerText = button.classList.contains('active') ? '♥' : '♡';
-      }
-      document.querySelectorAll('.texture-option').forEach((option) => {
-        option.addEventListener('click', function () {
-          document.querySelectorAll('.texture-option').forEach((opt) => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
-      document.querySelectorAll('.nav-dot').forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          document.querySelectorAll('.nav-dot').forEach((d) => d.classList.remove('active'));
-          dot.classList.add('active');
-        });
-      });
-    </script>
   </body>
 </html>
